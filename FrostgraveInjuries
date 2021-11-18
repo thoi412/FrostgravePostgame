@@ -109,7 +109,7 @@ def main2():
 		else:
 			print("Well isn't that nice.")
 	except:
-		print("Reply with a lower case 'y' or 'n'")
+		print("Reply with a lowercase 'y' or 'n'")
 	
 	try:
 		wizard_injury = input("Was your apprentice injured? (y/n)")
@@ -118,4 +118,4 @@ def main2():
 		else:
 			print("Well isn't that nice.")
 	except:
-		print("Reply with a lower case 'y' or 'n'")
+		print("Reply with a lowercase 'y' or 'n'")
