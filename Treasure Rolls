@@ -1,0 +1,265 @@
+#Python code
+
+import random
+from time import sleep
+
+# Define Functions
+
+def roll_20():
+	return random.randint(1,20)
+	
+def table_roll_20():
+	return random.randint(0,19)
+
+def magic_table_roll():
+    return random.randint(0,3)
+
+def greaterPotionTable():
+	roll = table_roll_20()
+	return greater_potion_table[roll]
+	
+def lesserPotionTable():
+	roll = table_roll_20()
+	return lesser_potion_table[roll]
+
+def spellTable():
+	roll1 = magic_table_roll()
+	roll2 = table_roll_20()
+	return spell_table[roll1][roll2]
+
+def magicWeaponArmourTable():
+	roll = table_roll_20()
+	return magic_weapon_armour_table[roll]
+	
+def magicItemTable():
+	roll = table_roll_20()
+	return magic_item_table[roll]
+
+def treasureTable():
+	roll = table_roll_20()
+	return treasure_table[roll]
+
+# The Tables
+
+# Greater Potion Table 
+greater_potion_table = [
+	'Cordial of Empowerment',
+	'Cordial of Empowerment',
+	'Shrinking Potion',
+	'Shrinking Potion',
+	'Potion of Restoration',
+	'Potion of Restoration',
+	'Bottle of Dreams and Nightmares',
+	'Bottle of Dreams and Nightmares',
+	'Shatterstar Draught',
+	'Shatterstar Draught',
+	'Bottle of Darkness',
+	'Bottle of Darkness',
+	'Ethereal Vacuum',
+	'Ethereal Vacuum',
+	'Potion of Invulnerability',
+	'Potion of Invulnerability',
+	'Bottle of Null',
+	'Bottle of Null',
+	'Elixir of Life',
+	'Elixir of Life'
+]
+
+	# Lesser Potion Table
+lesser_potion_table = [
+	'Potion of Healing',
+	'Potion of Strength',
+	'Potion of Toughness',
+	'Elixir of Speed',
+	'Potion of Invisibility',
+	'Explosive Cocktail',
+	'Potion of Teleportation',
+	'Potion of Elemental Absorption',
+	'Cordial of Clearsight',
+	'Poison',
+	'Philtre of Fury',
+	'Potion of Iron Mind',
+	'Potion of Burrowing',
+	'Philtre of Fairy Dust',
+	'Construct Oil',
+	'Potion of Fire Breath',
+	'Potion of Preservation',
+	'Elixir of the Chameleon',
+	greaterPotionTable(),
+	greaterPotionTable()
+]
+
+	# Spell Table
+spell_table = [
+	[
+		'Animate Skull',
+		'Curse',
+		'Fleet Feet',
+		'Leap',
+		'Wall',
+		'Push',
+		'Teleport',
+		'Strength',
+		'Awareness',
+		'Shield',
+		'Bone Dart',
+		'Mud',
+		'Decay',
+		'Plague of Insects',
+		'Elemental Bolt',
+		'Furious Quill',
+		'Blink',
+		'Enchant Weapon',
+		'Combat Awareness',
+		'Circle of Protection'
+	], [
+		'Bones of the Earth',
+		'Poison Dart',
+		'Slow',
+		'Imp',
+		'Call Storm',
+		'Draining Word',
+		'Invisibility',
+		'Telekinesis',
+		'True Sight',
+		'Banish',
+		'Spell Eater',
+		'Fog',
+		'Time Store',
+		'Planar Tear',
+		'Elemental Ball',
+		'Absorb Knowledge',
+		'Fool\'s Gold',
+		'Grenade',
+		'Wizard Eye',
+		'Heal'
+	], [
+		'Strike Dead',
+		'Animal Companion',
+		'Crumble',
+		'Plane Walk',
+		'Scatter Shot',
+		'Explosive Rune',
+		'Beauty',
+		'Enchant Armour',
+		'Mind Lock',
+		'Blinding Light',
+		'Steal Health',
+		'Control Animal',
+		'Petrify',
+		'Possess',
+		'Elemental Hammer',
+		'Power Word',
+		'Glow',
+		'Embed Enchantment',
+		'Suggestion',
+		'Dispel'
+	], [
+		'Control Undead',
+		'Familiar',
+		'Fast Act',
+		'Control Demon',
+		'Destructive Sphere',
+		'Write Scroll',
+		'Transpose',
+		'Control Construct',
+		'Mind Control',
+		'Miraculous Cure',
+		'Raise Zombie',
+		'Brew Potion',
+		'Time Walk',
+		'Summon Demon',
+		'Elemental Shield',
+		'Bridge',
+		'Illusionary Soldier',
+		'Animate Construct',
+		'Reveal Secret',
+		'Destroy Undead'
+	]
+]
+	
+	# Magic Weapon and Armour Table
+	
+magic_weapon_armour_table = [
+	'Hand Weapon (+1 damage modifier)',
+	'Hand Weapon (+1 Fight)',
+	'Hand Weapon (+2 Will)',
+	'Two-Handed Weapon (+1 damage modifier)',
+	'Two-Handed Weapon (+1 Fight)',
+	'Two-Handed Weapon (+2 Will)',
+	'Bow (+1 damage modifier)',
+	'Bow (+1 Shoot)',
+	'Crossbow (+1 damage modifier)',
+	'Crossbow (+1 Shoot)',
+	'Dagger (+1 Fight)',
+	'Dagger (+1 damage modifier)',
+	'Dagger (+2 damage modifier)',
+	'Light Armour (+1 Armour)',
+	'Heavy Armour (Elemental Absorption)',
+	'Ring of Protection (+1 Armour)',
+	'Cloak of Protection (+1 Armour)',
+	'Cloak of Night (Elemental Absorption)',
+	'Staff (+1 Fight)',
+	'Shield (+1 Armour)'
+]
+	
+	# Magic Item Table
+	
+magic_item_table = [
+	'Staff of Power (1)',
+	'Staff of Power (2)',
+	'Ring of Transference',
+	'Ring of Power (1)',
+	'Orb of Power (6)',
+	'Staff of Casting',
+	'Boots of Speed',
+	'Ring of Slow Fall',
+	'Ring of Will',
+	'Ring of Teleportation',
+	'Gloves of Strength',
+	'Robes of Arrow Turning',
+	'Amulet of Resistance',
+	'Construct Hammer',
+	'Gloves of Casting',
+	'Wand of Light',
+	'Horn of Destruction',
+	'Fate Stone',
+	'Wand of Power (1)',
+	'Staff of Power (3)'
+]
+	
+	# Treasure Table
+treasure_table = [
+	"50 gold crowns",
+	str(roll_20() * 10) + " gold crowns",
+	str(roll_20() * 20) + " gold crowns",
+	"20 gold crowns and " + lesserPotionTable() + ", " + lesserPotionTable() + ", and " + lesserPotionTable() + " potions",
+	"40 gold crowns and " + lesserPotionTable() + " and " + lesserPotionTable() + " potions",
+	"20 gold crowns and a " + spellTable() + " scroll",
+	"40 gold crowns and a " + spellTable() + " scroll and a " + spellTable() + " scroll",
+	"The magic weapon / armor of " + magicWeaponArmourTable(),
+	"20 gold crowns and the magic weapon / armor of " + magicWeaponArmourTable(),
+	"40 gold crowns and the magic weapon / armor of " + magicWeaponArmourTable(),
+	"The magic item of " + magicItemTable(),
+	"20 gold crowns and the magic item of " + magicItemTable(),
+	"40 gold crowns and the magic item of " + magicItemTable(),
+	"A Grimoire of " + spellTable(),
+	"20 gold crowns and a Grimoire of " + spellTable(),
+	"40 gold crowns and a Grimoire of " + spellTable(),
+	"60 gold crowns and a Grimoire of " + spellTable(),
+	"80 gold crowns and a Grimoire of " + spellTable(),
+	"100 gold crowns and a Grimoire of " + spellTable(),
+	"120 gold crowns and a Grimoire of " + spellTable()
+]
+
+def main():
+	try:
+		treasures = int(input("How many treasures did you recover?"))
+		for _ in range(treasures):
+			print(treasureTable())
+			sleep(0.5)
+	except:
+		print(“Try again, but put in a number like 3 next time.”)
+
+if __name__ = "__main__":
+    main()
