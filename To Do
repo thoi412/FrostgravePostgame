@@ -1,3 +1,4 @@
-0.  Fix the repeat results occuring when running treasureTable
-1.  Make magic items into objects in Item class
-2.  Create a treasure summary with a total of the gold found and value of all treasure, excluding "priceless" grimours.
+Fix the repeat results occuring when running treasureTable
+Update print statements to print(f"{thing} stuff") print statements
+Make magic items into objects in Item class
+Create a treasure summary with a total of the gold found and value of all treasure, excluding "priceless" grimours.
