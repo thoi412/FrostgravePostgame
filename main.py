@@ -321,6 +321,7 @@ def magicItemTable():
 
 loot = list()
 
+
 def treasureTable():
     new_loot = list()
     treasure_table = [
