@@ -1,19 +1,8 @@
 import random
-# from Classes import Item
-# import Data
-# from time import sleep
-
-
-class Item:
-    def __init__(self, name, purchase_price, sale_price, item_type, description):
-        self.name = name
-        self.purchase_price = purchase_price
-        self.sale_price = sale_price
-        self.item_type = item_type
-        self.description = description
-
+from Classes import Item
 
 # Spell Table - length 80
+
 spell_table = [
     'Animate Skull',
     'Curse',
@@ -96,42 +85,6 @@ spell_table = [
     'Reveal Secret',
     'Destroy Undead'
 ]
-
-
-def roll_20():
-    return random.randint(1, 20)
-
-
-def table_roll_20():
-    return random.randint(0, 19)
-
-
-def magic_table_roll():
-    return random.randint(0, len(spell_table) - 1)
-
-
-def spellTable():
-    spell = random.choices(spell_table)[0]
-    return spell
-
-
-def soldierSurvival():
-    soldier_survival = random.choices(soldier_survival_table, soldier_survival_table_odds)[0]
-    return soldier_survival
-
-
-def spellcasterSurvival():
-    spellcaster_survival = random.choices(spellcaster_survival_table, spellcaster_survival_odds)[0]
-    return spellcaster_survival
-
-
-def spellcasterInjuries():
-    spellcaster_injuries = random.choices(spellcaster_injuries_table, spellcaster_injuries_odds)[0]
-    return spellcaster_injuries
-
-
-def flatten(t):
-    return [thing for sublist in t for thing in sublist]
 
 
 # Define Lesser Potions
@@ -233,7 +186,7 @@ ring_transference = Item('Ring of Transference', 400, 150, 'Magic Item',
                          'that is in line of sight, on a 1-for-1 basis. So, if the wearer spend 3 Health, they may '
                          'transfer 3 Health to another warband member. This may not take the other warband member '
                          'above their starting Health.')
-staff_casting = Item('Staff of Casting : ' + spellTable(), 500, 200, 'Magic Item',
+staff_casting = Item('Staff of Casting : ' + random.choices(spell_table)[0], 500, 200, 'Magic Item',
                      'When this item is found, roll on the Random Spell Table (pg 96) to identify a spell.  This staff'
                      ' gives a +1 to the Casting Roll for that specific spell.  Note that, if purchasing a Staff of'
                      ' Casting, you must pay its cost before rolling to identify the spell.')
@@ -294,159 +247,3 @@ for n in range(len(spell_table)):
                                                         "If your wizard already knows this spell, it can be sold for "
                                                         "200 gc.")
     grimoires.append(grimoire)
-
-potions_odds = []
-for _ in range(len(lesser_potions)):
-    potions_odds.append(5)
-
-for _ in range(len(greater_potions)):
-    potions_odds.append(1)
-
-
-def random_potion():
-    chosen_potion = random.choices(potions_list, potions_odds)[0]
-    return chosen_potion
-
-
-def magicWeaponArmourTable():
-    roll = table_roll_20()
-    return magic_weapon_armour_table[roll]
-
-
-def magicItemTable():
-    roll = table_roll_20()
-    return magic_item_table[roll]
-
-
-loot = list()
-
-
-def treasureTable():
-    new_loot = list()
-    treasure_table = [
-        [golds[5]],
-        [golds[roll_20()]],
-        [golds[roll_20() * 2]],
-        [golds[2], random_potion(), random_potion(), random_potion()],
-        [golds[4], random_potion(), random_potion()],
-        [golds[2], scrolls[magic_table_roll()]],
-        [golds[4], scrolls[magic_table_roll()], scrolls[magic_table_roll()]],
-        [magicWeaponArmourTable()],
-        [golds[2], magicWeaponArmourTable()],
-        [golds[4], magicWeaponArmourTable()],
-        [magicItemTable()],
-        [golds[2], magicItemTable()],
-        [golds[4], magicItemTable()],
-        [grimoires[magic_table_roll()]],
-        [golds[2], grimoires[magic_table_roll()]],
-        [golds[4], grimoires[magic_table_roll()]],
-        [golds[6], grimoires[magic_table_roll()]],
-        [golds[8], grimoires[magic_table_roll()]],
-        [golds[10], grimoires[magic_table_roll()]],
-        [golds[12], grimoires[magic_table_roll()]]
-    ]
-    roll = table_roll_20()
-    # print(roll)  # Uncomment for troubleshooting
-    # return treasure_table[roll]...
-    this_loot = treasure_table[roll]
-    new_loot.append(this_loot)
-    return new_loot
-
-
-# The Tables
-soldier_survival_table = ["has died.", "is badly wounded.", "will make a full recovery."]
-soldier_survival_table_odds = [4, 4, 12]
-
-spellcaster_injuries_table = ["lost toes", "a smashed leg", "a crushed arm", "lost fingers",
-                              "never being quite as strong", "psychological scars", "a niggling injury",
-                              "a smashed jaw", "a lost eye"]
-spellcaster_injuries_odds = [2, 4, 4, 2, 2, 2, 2, 1, 1]
-
-spellcaster_survival_table = ["has died.", "will carry a permanent injury of " + spellcasterInjuries() + ".",
-                              "is badly wounded.", "had a close call.", "will make a full recovery."]
-spellcaster_survival_odds = [2, 2, 2, 2, 12]
-
-# Magic Weapon and Armour Table
-
-magic_weapon_armour_table = [hand_weapon_dmg, hand_weapon_fight, hand_weapon_will, two_hand_weapon_dmg,
-                             two_hand_weapon_fight, two_hand_weapon_will, bow_dmg, bow_shoot, crossbow_dmg,
-                             crossbow_shoot, dagger_fight, dagger_1dmg, dagger_2dmg, light_armour_arm,
-                             heavy_armour_elem, ring_protection, cloak_protection, cloak_night, staff_fight, shield_arm]
-
-# Magic Item Table
-
-magic_item_table = [staff_power_1, staff_power_2, staff_power_3, ring_power_1, wand_power_1, orb_power_6,
-                    ring_transference, staff_casting, boots_speed, ring_slow_fall, ring_will, ring_teleportation,
-                    gloves_strength, robes_arrow_turn, amulet_resistance, construct_hammer, gloves_casting, wand_light,
-                    horn_destruction, fate_stone]
-
-
-def main():
-
-    try:
-        injured_soldiers = int(input("How many of your soldiers were defeated? "))
-        if injured_soldiers == 0:
-            print('Did you even play Frostgrave?')
-        elif injured_soldiers > 8:
-            print("You know your apprentice and wizard aren't soldiers right?")
-        for soldier in range(injured_soldiers):
-            print("Soldier " + str(soldier + 1) + " " + soldierSurvival())
-    except ValueError:
-        print("Try putting in a numeral like 3 next time")
-
-    try:
-        apprentice_injury = input("Was your apprentice injured? (y/n)")
-        if apprentice_injury == 'y':
-            print("Your apprentice " + spellcasterSurvival())
-        elif apprentice_injury == 'n':
-            print("Well isn't that nice.")
-    except ValueError:
-        print("Reply with a lowercase 'y' or 'n'")
-
-    try:
-        wizard_injury = input("Was your wizard injured? (y/n)")
-        if wizard_injury == 'y':
-            print("Your wizard " + spellcasterSurvival())
-        elif wizard_injury == 'n':
-            print("Well isn't that nice.")
-    except ValueError:
-        print("Reply with a lowercase 'y' or 'n'")
-
-    crowns = 0
-    treasure_sale_value = 0
-    loot_items_list = list()
-
-    try:
-        treasures = int(input("How many treasures did you recover?"))
-        for i in range(treasures):
-            loot.append(treasureTable())
-        flat_loot = flatten(flatten(loot))
-        for item in range(len(flat_loot)):
-            if flat_loot[item].item_type != 'Gold':
-                loot_items_list.append(flat_loot[item])
-        for item in range(len(flat_loot)):
-            if flat_loot[item].item_type == 'Gold':
-                crowns += flat_loot[item].sale_price
-            elif flat_loot[item].item_type == 'Weapon' or 'Armour' or 'Scroll':
-                treasure_sale_value += flat_loot[item].sale_price
-        print('')
-        print(f'You looted a total of {crowns} gold crowns.')
-        print('')
-        print(f'You also got away with the following treasures:')
-        for item in range(len(loot_items_list)):
-            print(loot_items_list[item].name)
-        print(f'A total sale value of {treasure_sale_value} gold crowns.')
-        print('')
-
-        print_descriptions = input("Would you like the item descriptions displayed? (y/n)")
-        if print_descriptions == 'y':
-            for item in range(len(loot_items_list)):
-                print(f'{loot_items_list[item].name}: {loot_items_list[item].description}')
-        else:
-            print("Well fine then you big know it all!")
-    except ValueError:
-        print("Try again, but put in a number like 3 next time.")
-
-
-if __name__ == "__main__":
-    main()
