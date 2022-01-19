@@ -1,4 +1,5 @@
 Prompt to run through main again at end of main.
+Need to bug check for the Staff of Casting.  Does it make only 1 set staff?  Probably...  Then how best to have 80 different staffs an option for 1 of the magic item rolls. More nested randomizers
 Move data to a data file and leave main.py to just run the logic.
 Type up potion descriptions.
 Make this portable, either run it on a web page or on an Android App.
