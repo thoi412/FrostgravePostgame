@@ -161,6 +161,14 @@ cloak_night = Item('Cloak of Night', 500, 200, 'Armour', 'A Cloak of Night grant
 staff_fight = Item('Staff, +1 Fight', 300, 125, 'Weapon', 'A staff with a +1 Fight modifier.')
 shield_arm = Item('Shield, +1 Armour', 700, 250, 'Armour', 'A shield with a +1 Armour modifier.')
 
+# Magic Weapon and Armour Table
+
+magic_weapon_armour_table = [hand_weapon_dmg, hand_weapon_fight, hand_weapon_will, two_hand_weapon_dmg,
+                             two_hand_weapon_fight, two_hand_weapon_will, bow_dmg, bow_shoot, crossbow_dmg,
+                             crossbow_shoot, dagger_fight, dagger_1dmg, dagger_2dmg, light_armour_arm,
+                             heavy_armour_elem, ring_protection, cloak_protection, cloak_night, staff_fight, shield_arm]
+
+
 # Magic Items
 staff_power_1 = Item('Staff of Power (1)', 300, 150, 'Magic Item',
                      'A staff that a caster can use to empower a spell or Will Roll from a reserve of 1. This recharges'
@@ -224,7 +232,12 @@ fate_stone = Item('Fate Stone', 500, 200, 'Magic Item',
                   'Once per game, the figure carrying a fate stone may re-roll any one Casting Roll, Stat Roll, Combat'
                   ' Roll, or Shooting Roll.')
 
-# Scrolls and Grimoires
+# Magic Item Table
+
+magic_item_table = [staff_power_1, staff_power_2, staff_power_3, ring_power_1, wand_power_1, orb_power_6,
+                    ring_transference, staff_casting, boots_speed, ring_slow_fall, ring_will, ring_teleportation,
+                    gloves_strength, robes_arrow_turn, amulet_resistance, construct_hammer, gloves_casting, wand_light,
+                    horn_destruction, fate_stone]
 
 
 golds = list()
@@ -232,6 +245,7 @@ for n in range(0, 410, 10):
     gold = Item(str(n) + ' gold crowns', n, n, 'Gold', '')
     golds.append(gold)
 
+# Scrolls and Grimoires
 scrolls = list()
 for n in range(len(spell_table)):
     scroll = Item(spell_table[n] + ' scroll', 0, 30, 'Spell Scroll',
