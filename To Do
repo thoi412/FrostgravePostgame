@@ -1,4 +1,8 @@
-Fix the repeat results occuring when running treasureTable
-Update print statements to print(f"{thing} stuff") print statements
-Make magic items into objects in Item class
-Create a treasure summary with a total of the gold found and value of all treasure, excluding "priceless" grimours.
+Prompt to run through main again at end of main.
+Move data to a data file and leave main.py to just run the logic.
+Type up potion descriptions.
+Make this portable, either run it on a web page or on an Android App.
+
+Profit??
+
+Maybe make it useful in-game by adding the monster table rolls.
