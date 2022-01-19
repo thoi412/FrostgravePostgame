@@ -405,7 +405,7 @@ def main():
         print("Reply with a lowercase 'y' or 'n'")
 
     try:
-        wizard_injury = input("Was your apprentice injured? (y/n)")
+        wizard_injury = input("Was your wizard injured? (y/n)")
         if wizard_injury == 'y':
             print("Your wizard " + spellcasterSurvival())
         elif wizard_injury == 'n':
