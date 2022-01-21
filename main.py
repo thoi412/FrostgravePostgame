@@ -1,5 +1,5 @@
 import random
-from Classes import Item
+# from Classes import Item
 from Data import spell_table, potions_list, lesser_potions, greater_potions, \
     magic_weapon_armour_table, magic_item_table, grimoires, golds, scrolls
 # from time import sleep
@@ -46,6 +46,8 @@ for _ in range(len(lesser_potions)):
 
 for _ in range(len(greater_potions)):
     potions_odds.append(1)
+# This gives each lesser potion a 5% chance of being the result while each lesser potion only has a 1% chance.
+# It's happenstance that the 5's and 1's line up to the % chances due to the population of each potion type.
 
 
 def random_potion():
@@ -64,17 +66,34 @@ def magicItemTable():
 
 
 # The Tables
-soldier_survival_table = ["has died.", "is badly wounded.", "will make a full recovery."]
-soldier_survival_table_odds = [4, 4, 12]
+soldier_survival_dict = {
+    "has died.": 4,
+    "is badly wounded.": 4,
+    "will make a full recovery.": 12
+}
+soldier_survival_table, soldier_survival_table_odds = keys_and_weights(soldier_survival_dict)
 
-spellcaster_injuries_table = ["lost toes", "a smashed leg", "a crushed arm", "lost fingers",
-                              "never being quite as strong", "psychological scars", "a niggling injury",
-                              "a smashed jaw", "a lost eye"]
-spellcaster_injuries_odds = [2, 4, 4, 2, 2, 2, 2, 1, 1]
+spellcaster_injuries_dict = {
+    "lost toes": 2,
+    "a smashed leg": 4,
+    "a crushed arm": 4,
+    "lost fingers": 2,
+    "never being quite as strong": 2,
+    "psychological scars": 2,
+    "a niggling injury": 2,
+    "a smashed jaw": 1,
+    "a lost eye": 1
+}
+spellcaster_injuries_table, spellcaster_injuries_odds = keys_and_weights(spellcaster_injuries_dict)
 
-spellcaster_survival_table = ["has died.", "will carry a permanent injury of " + spellcasterInjuries() + ".",
-                              "is badly wounded.", "had a close call.", "will make a full recovery."]
-spellcaster_survival_odds = [2, 2, 2, 2, 12]
+spellcaster_survival_dict = {
+    "has died": 2,
+    "will carry a permanent injury of " + spellcasterInjuries() + ".": 2,
+    "is badly wounded.": 2,
+    "had a close call.": 2,
+    "will make a full recovery.": 12
+}
+spellcaster_survival_table, spellcaster_survival_odds = keys_and_weights(spellcaster_survival_dict)
 
 loot = list()
 
@@ -109,6 +128,7 @@ def treasureTable():
     this_loot = treasure_table[roll]
     new_loot.append(this_loot)
     return new_loot
+
 
 def main():
 
