@@ -1,3 +1,6 @@
+import Data
+
+
 class Item:
     def __init__(self, name, purchase_price, sale_price, item_type, description):
         self.name = name
@@ -64,6 +67,120 @@ class Figure:
 
 
 class SpellCaster(Figure):
-    def __init__(self, level, name, figure_type, move, shoot, armour, will, max_health):
+    def __init__(self, level, name, figure_type, school, move, shoot, armour, will, max_health):
         super().__init__(name, figure_type, move, shoot, armour, will, max_health)
         self.level = level
+        self.school = school
+
+
+class Thug(Figure):
+    def __init__(self, name, figure_type, move, shoot, armour, will, max_health, cost, equipment, properties):
+        super().__init__(name, figure_type, move, shoot, armour, will, max_health)
+        self.equipment = equipment
+        self.cost = cost
+        self.figure_type = "Thug"
+        self.move = 6
+        self.fight = 2
+        self.shoot = 0
+        self.armour = 10
+        self.will = -1
+        self.health = 10
+        self.cost = 0
+        self.equipment = "Hand Weapon"
+        self.properties = properties
+
+
+class Thief(Figure):
+    def __init__(self, name, figure_type, move, shoot, armour, will, max_health, cost, equipment, properties):
+        super().__init__(name, figure_type, move, shoot, armour, will, max_health)
+        self.cost = cost
+        self.equipment = equipment
+        self.properties = properties
+
+        self.figure_type = "Thief"
+        self.move = 7
+        self.fight = 1
+        self.shoot = 0
+        self.armour = 10
+        self.will = 0
+        self.health = 10
+        self.cost = 0
+        self.equipment = "Dagger"
+
+
+class WarHound(Figure):
+    def __init__(self, name, figure_type, move, shoot, armour, will, max_health, cost, equipment, properties):
+        super().__init__(name, figure_type, move, shoot, armour, will, max_health)
+        self.cost = cost
+        self.equipment = equipment
+        self.properties = properties
+
+        self.figure_type = "War Hound"
+        self.move = 8
+        self.fight = 1
+        self.shoot = 0
+        self.armour = 10
+        self.will = -2
+        self.health = 8
+        self.cost = 10
+        self.equipment = ""
+        self.properties = "Animal"
+
+
+class Infantryman(Figure):
+    def __init__(self, name, figure_type, move, shoot, armour, will, max_health, cost, equipment, properties):
+        super().__init__(name, figure_type, move, shoot, armour, will, max_health)
+        self.cost = cost
+        self.equipment = equipment
+        self.properties = properties
+
+        self.figure_type = "Infantryman"
+        self.move = 6
+        self.fight = 3
+        self.shoot = 0
+        self.armour = 11
+        self.will = 0
+        self.health = 10
+        self.cost = 50
+        self.equipment = ("Two-Handed Weapon", "Light Armour")
+        self.properties = ""
+
+
+class ManAtArms(Figure):
+    def __init__(self, name, figure_type, move, shoot, armour, will, max_health, cost, equipment, properties):
+        super().__init__(name, figure_type, move, shoot, armour, will, max_health)
+        self.cost = cost
+        self.equipment = equipment
+        self.properties = properties
+
+        self.figure_type = "Man-at-Arms"
+        self.move = 6
+        self.fight = 3
+        self.shoot = 0
+        self.armour = 12
+        self.will = 1
+        self.health = 12
+        self.cost = 75
+        self.equipment = ("Hand Weapon", "Shield", "Light Armour")
+        self.properties = ""
+
+
+class Apothecary(Figure):
+    def __init__(self, name, figure_type, move, shoot, armour, will, max_health, cost, equipment, properties):
+        super().__init__(name, figure_type, move, shoot, armour, will, max_health)
+        self.cost = cost
+        self.equipment = equipment
+        self.properties = properties
+
+        self.figure_type = "Apothecary"
+        self.move = 6
+        self.fight = 1
+        self.shoot = 0
+        self.armour = 10
+        self.will = 3
+        self.health = 12
+        self.cost = 75
+        self.equipment = ("Staff", Data.pot_of_heal)
+        self.properties = ""
+
+
