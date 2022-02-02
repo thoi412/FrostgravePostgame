@@ -11,7 +11,7 @@ magic_schools = ("Chronomancer", "Elementalist", "Enchanter", "Illusionist", "Ne
                  "Summoner", "Thaumaturge", "Witch")
 
 # Chronomancer School
-crumble = Spell("Crumble", magic_schools[0], 10, "Line of Sight","")
+crumble = Spell("Crumble", magic_schools[0], 10, "Line of Sight", "")
 decay = Spell("Decay", magic_schools[0], 12, "Line of Sight", "")
 fast_act = Spell("Fast Act", magic_schools[0], 8, "Line of Sight", "")
 fleet_feet = Spell("Fleet Feet", magic_schools[0], 10, "Line of Sight", "")
