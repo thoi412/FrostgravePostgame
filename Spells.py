@@ -1,3 +1,12 @@
+class IterRegistry(type):
+    def __init__(self, o: object):
+        super().__init__(o)
+        self._registry = None
+
+    def __iter__(cls):
+        return iter(cls._registry)
+
+
 class Spell:
     def __init__(self, name, school, base_casting_number, category, description):
         self.name = name
@@ -5,6 +14,10 @@ class Spell:
         self.base_casting_number = base_casting_number
         self.category = category
         self.description = description
+        __metaclass__ = IterRegistry
+        _registry = []
+
+#    def my_casting_number(self, ):
 
 
 magic_schools = ("Chronomancer", "Elementalist", "Enchanter", "Illusionist", "Necromancer", "Sigilist", "Soothsayer",
@@ -112,8 +125,6 @@ poison_dart = Spell("Poison Dart", magic_schools[9], 10, "Line of Sight", "")
 
 magic_schools = ("Chronomancer", "Elementalist", "Enchanter", "Illusionist", "Necromancer", "Sigilist", "Soothsayer",
                  "Summoner", "Thaumaturge", "Witch")
-
-casting_modification = []
 
 Chronomancer_casting = {
     magic_schools[0]: 0,  # Chronomancer
@@ -244,3 +255,7 @@ Witch_casting = {
     magic_schools[8]: 4,  # Thaumaturge
     magic_schools[9]: 4  # Witch
 }
+
+casting_modification = [Chronomancer_casting, Enchanter_casting, Enchanter_casting, Illusionist_casting,
+                        Necromancer_casting, Sigilist_casting, Soothsayer_casting, Summoner_casting,
+                        Thaumaturge_casting, Witch_casting]
