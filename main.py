@@ -130,6 +130,9 @@ def treasureTable():
     return new_loot
 
 
+# def create_figure():
+
+
 def main():
 
     try:

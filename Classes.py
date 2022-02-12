@@ -66,6 +66,10 @@ class Figure:
         }
 
 
+magic_schools = ("Chronomancer", "Elementalist", "Enchanter", "Illusionist", "Necromancer", "Sigilist", "Soothsayer",
+                 "Summoner", "Thaumaturge", "Witch")
+
+
 class SpellCaster(Figure):
     def __init__(self, level, name, figure_type, school, move, shoot, armour, will, max_health):
         super().__init__(name, figure_type, move, shoot, armour, will, max_health)
